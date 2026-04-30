@@ -6,12 +6,12 @@ from flask import (Flask, redirect, render_template, request,
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def index():
    print('Solicitud de la página principal recibida')
    return render_template('index.html')
 
-@app.route('/favicon.ico')
+@app.route('/favicon.ico', methods=['GET'])
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
